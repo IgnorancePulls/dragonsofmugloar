@@ -1,13 +1,13 @@
 'use strict'
 
-
 const models = require('./models');
 const constants = require('./constants');
-const skillCalculator = require('./helper').skillCalculator;
+const helper = require('./helper');
 const enums = require('./enums');
 
 let wins = 0;
 let lose = 0;
+let logger = new helper.Logger();
 
 async function start() {
     let game;
@@ -18,26 +18,26 @@ async function start() {
 
     game = new models.Game();
     weather = new models.Weather();
-
+    
     await game.createNewGame();
     await weather.defineWeather(game.gameId);
 
     knight = new models.Knight(game.knight);
-    skillCalc = new skillCalculator(knight, constants.skillMap);
+    skillCalc = new helper.SkillCalculator(knight, constants.SkillMap);
 
-    if(weather.code === enums.WeatherCode.NORMAL) {
-        dragon =  new models.Dragon(skillCalc.buildSkills());
+    if(weather.code === enums.WeatherCode.Normal) {
+        dragon = new models.Dragon(skillCalc.buildSkills());
     }
-    else if (weather.code === enums.WeatherCode.RAIN) {
-        dragon =  new models.Dragon(constants.dragonPatterns.RAIN_DRAGON);
+    else if (weather.code === enums.WeatherCode.Rain) {
+        dragon = new models.Dragon(constants.DragonPatterns.RAIN_DRAGON);
     }
     else {
-        dragon = new models.Dragon(constants.dragonPatterns.BALANCED_DRAGON);
+        dragon = new models.Dragon(constants.DragonPatterns.BALANCED_DRAGON);
     }
 
     const result = await game.sendGame(dragon);
 
-    if(result.status === 'Defeat') lose ++;
+    if(result.status === enums.GameCode.Defeat) lose ++;
     else wins++;
 }
 
@@ -55,11 +55,11 @@ function epicBattle() {
         .then(() => {
             console.log('wins: ', wins);
             console.log('lose: ', lose);
-            console.log('Win percentage: ', (wins + lose) / 100 * wins)
+            console.log('Win percentage: ', wins / (wins + lose) * 100, '%')
         })
 }
 
 epicBattle();
 
-// start();
+//start();
 

@@ -15,11 +15,10 @@ class SkillCalculator {
     }
 
     mapSkills() {
-        debugger;
         for(let i = 0; i < this.skillMap.length; i++) {
-            let key = this.skillMap[i].knight;
+            let key = this.skillMap[i].KNIGHT;
             this.skills.push({
-                skill: this.skillMap[i].dragon,
+                skill: this.skillMap[i].DRAGON,
                 value: this.knight[key]
             })
         }
@@ -60,6 +59,5 @@ class SkillCalculator {
         return this.flatSkillSet;
     }
 }
-
 
 module.exports = SkillCalculator;

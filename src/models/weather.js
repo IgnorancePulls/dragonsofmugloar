@@ -15,9 +15,9 @@ class Weather {
 
     async defineWeather(gameId) {
         let response = await this.getWeather(gameId);
-        let parsed = helper.parseXml(response);
+        let parsed = helper.ParseXml(response);
         this.setWeatherProps(parsed);
     }
 }
 
-module.exports.Weather = Weather;
+module.exports = Weather;

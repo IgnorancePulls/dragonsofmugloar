@@ -1,4 +1,4 @@
 module.exports = {
-    dragonPatterns: require('./dragon.patterns'),
-    skillMap: require('./skill.map')
+    DragonPatterns: require('./dragon.patterns'),
+    SkillMap: require('./skill.map')
 };

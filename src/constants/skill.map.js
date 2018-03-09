@@ -1,21 +1,20 @@
 const enums = require('../enums');
 
 module.exports = [
-
     {
-        knight: enums.KnightSkills.Attack,
-        dragon: enums.DragonSkills.ScaleThickness
+        KNIGHT: enums.KnightSkills.Attack,
+        DRAGON: enums.DragonSkills.ScaleThickness
     },
     {
-        knight: enums.KnightSkills.Armor,
-        dragon: enums.DragonSkills.ClawSharpness
+        KNIGHT: enums.KnightSkills.Armor,
+        DRAGON: enums.DragonSkills.ClawSharpness
     },
     {
-        knight: enums.KnightSkills.Endurance,
-        dragon: enums.DragonSkills.FireBreath
+        KNIGHT: enums.KnightSkills.Endurance,
+        DRAGON: enums.DragonSkills.FireBreath
     },
     {
-        knight: enums.KnightSkills.Agility,
-        dragon: enums.DragonSkills.WingStrength
+        KNIGHT: enums.KnightSkills.Agility,
+        DRAGON: enums.DragonSkills.WingStrength
     }
-]
+];

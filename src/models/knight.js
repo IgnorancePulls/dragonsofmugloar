@@ -4,4 +4,4 @@ class Knight {
     }
 }
 
-module.exports.Knight = Knight;
+module.exports = Knight;

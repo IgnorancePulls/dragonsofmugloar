@@ -1,7 +1,7 @@
 const fastXmlParser = require('fast-xml-parser');
 
-function parseXml(xml) {
+function ParseXml(xml) {
     return fastXmlParser.parse(xml);
 }
 
-module.exports.parseXml = parseXml;
+module.exports = ParseXml;
