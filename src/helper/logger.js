@@ -1,25 +1,36 @@
+const enums = require('../enums');
+
 
 class Logger {
-    constructor(wins, loses) {
+    constructor() {
         this.winsPercentage = 0;
         this.wins = 0;
         this.loses = 0;
         this.winsMessage = 'Win count: ';
-        this.loseMessage = 'Lose count: ';
+        this.defeatMessage = 'Lose count: ';
         this.winsPercentageMessage = 'Win percentage: ';
     }
 
     logWins() {
         console.log(this.winsMessage, this.wins);
+        return this;
+    }
+
+    incrementWins() {
+        this.wins++
+    }
+
+    incrementLoses() {
+        this.loses++
     }
 
     logDefeat() {
-        console.log(this.winsMessage, this.wins);
+        console.log(this.defeatMessage, this.loses);
         return this;
     }
 
     logWinsPercentage() {
-        console.log(this.winsPercentageMessage, this.winsPercentage);
+        console.log(this.winsPercentageMessage, this.winsPercentage, '%');
         return this;
     }
 
@@ -33,6 +44,11 @@ class Logger {
         .logDefeat()
         .calculateWinsPercentage()
         .logWinsPercentage();
+    }
+
+    handleREsult(res) {
+        if(res.status === enums.GameCode.Victory) this.incrementWins()
+        else this.incrementLoses()
     }
 }
 
