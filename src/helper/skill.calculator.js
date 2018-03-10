@@ -1,3 +1,5 @@
+'use strict';
+
 class SkillCalculator {
     constructor(knight, skillMap) {
         this.knight = knight;
@@ -7,20 +9,20 @@ class SkillCalculator {
     }
 
     buildSkills() {
-       return this.mapSkills()
-           .sortSkills()
-           .pumpSkills()
-           .flatSkills()
-           .getFlatSkills();
+        return this.mapSkills()
+            .sortSkills()
+            .pumpSkills()
+            .flatSkills()
+            .getFlatSkills();
     }
 
     mapSkills() {
-        for(let i = 0; i < this.skillMap.length; i++) {
+        for (let i = 0; i < this.skillMap.length; i++) {
             let key = this.skillMap[i].KNIGHT;
             this.skills.push({
                 skill: this.skillMap[i].DRAGON,
                 value: this.knight[key]
-            })
+            });
         }
 
         return this;
@@ -32,12 +34,12 @@ class SkillCalculator {
     }
 
     pumpSkills() {
-        if(this.skills[0].value > 8) return this;
+        if (this.skills[0].value > 8) return this;
 
-        for(let i = 0; i < this.skills.length - 1; i++ ) {
+        for (let i = 0; i < this.skills.length - 1; i++) {
             let current = this.skills[i].value;
 
-            if(i === 0 && current < 9 ) {
+            if (i === 0 && current < 9) {
                 current = current + 2;
             }
             else current = current - 1;
@@ -49,7 +51,7 @@ class SkillCalculator {
     }
 
     flatSkills() {
-        for(let i = 0; i < this.skills.length; i++) {
+        for (let i = 0; i < this.skills.length; i++) {
             this.flatSkillSet[this.skills[i].skill] = this.skills[i].value;
         }
         return this;

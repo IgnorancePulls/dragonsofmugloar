@@ -1,11 +1,11 @@
+'use strict';
+
 const request = require('../request.service');
 const helper = require('../helper');
 
 class Weather {
-    constructor() {}
-
     async getWeather(gameId) {
-        return await request.getWeather(gameId);
+        return request.getWeather(gameId);
     }
 
     setWeatherProps(weather) {

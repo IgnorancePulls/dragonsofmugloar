@@ -1,3 +1,5 @@
+'use strict';
+
 const enums = require('../enums');
 
 module.exports = [

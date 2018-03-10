@@ -1,14 +1,14 @@
+'use strict';
+
 const request = require('../request.service');
 
 class Game {
-    constructor() {};
-
     async getGame() {
-        return await request.getGame();
+        return request.getGame();
     }
 
     async sendGame(dragon) {
-        return await request.fight(dragon, this.gameId);
+        return request.fight(dragon, this.gameId);
     }
 
     setGameProps(game) {
@@ -17,7 +17,7 @@ class Game {
     }
 
     async createNewGame() {
-        let response =  await this.getGame();
+        let response = await this.getGame();
         this.setGameProps(response);
     }
 }

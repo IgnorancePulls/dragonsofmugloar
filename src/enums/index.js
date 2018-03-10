@@ -1,5 +1,4 @@
-// module.exports.WeatherCode = require('./weather');
-// module.exports.KnightSkills = require('./knight.skills');
+'use strict';
 
 module.exports = {
     KnightSkills: require('./knight.skills'),

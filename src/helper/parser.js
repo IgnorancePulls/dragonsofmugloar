@@ -1,3 +1,5 @@
+'use strict';
+
 const fastXmlParser = require('fast-xml-parser');
 
 function ParseXml(xml) {

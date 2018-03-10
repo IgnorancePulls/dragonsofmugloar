@@ -1,5 +1,6 @@
-const enums = require('../enums');
+'use strict';
 
+const enums = require('../enums');
 
 class Logger {
     constructor() {
@@ -17,11 +18,11 @@ class Logger {
     }
 
     incrementWins() {
-        this.wins++
+        this.wins++;
     }
 
     incrementLoses() {
-        this.loses++
+        this.loses++;
     }
 
     logDefeat() {
@@ -41,14 +42,14 @@ class Logger {
 
     logGame() {
         this.logWins()
-        .logDefeat()
-        .calculateWinsPercentage()
-        .logWinsPercentage();
+            .logDefeat()
+            .calculateWinsPercentage()
+            .logWinsPercentage();
     }
 
     handleREsult(res) {
-        if(res.status === enums.GameCode.Victory) this.incrementWins()
-        else this.incrementLoses()
+        if (res.status === enums.GameCode.Victory) this.incrementWins();
+        else this.incrementLoses();
     }
 }
 

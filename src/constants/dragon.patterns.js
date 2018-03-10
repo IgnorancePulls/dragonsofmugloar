@@ -1,3 +1,5 @@
+'use strict';
+
 const BALANCED_DRAGON = {
     scaleThickness: 5,
     clawSharpness: 5,

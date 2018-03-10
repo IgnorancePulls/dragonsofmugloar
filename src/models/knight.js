@@ -1,6 +1,8 @@
+'use strict';
+
 class Knight {
     constructor(knight) {
-       Object.assign(this, knight);
+        Object.assign(this, knight);
     }
 }
 
