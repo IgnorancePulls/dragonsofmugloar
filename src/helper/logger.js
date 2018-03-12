@@ -47,7 +47,7 @@ class Logger {
             .logWinsPercentage();
     }
 
-    handleREsult(res) {
+    handleResult(res) {
         if (res.status === enums.GameCode.Victory) this.incrementWins();
         else this.incrementLoses();
     }

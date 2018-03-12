@@ -4,8 +4,8 @@ const Runner = require('./src');
 const Logger = require('./src/helper/logger');
 
 class Play {
-    constructor() {
-        this.iterations = 20;
+    constructor(iteration = 20) {
+        this.iterations = iteration;
         this.fights = [];
         this.log = new Logger();
     }
@@ -15,7 +15,7 @@ class Play {
             let run = new Runner();
             this.fights.push(
                 run.start()
-                    .then((res) => this.log.handleREsult(res))
+                    .then((res) => this.log.handleResult(res))
                     .catch(console.error)
             );
         }

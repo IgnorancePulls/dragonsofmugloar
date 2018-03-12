@@ -7,6 +7,7 @@ This is my version of dragonsOfMugloar task
  * Download and install [Node.js](https://nodejs.org/en/)
  * Download project
  * Open terminal and navigate to project root
+ * Execute this command ` npm i`
  * Execute this command ` node index.js`
  * ...???
  * PROFIT
