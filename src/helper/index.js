@@ -3,5 +3,6 @@
 module.exports = {
     ParseXml: require('./parser'),
     SkillCalculator: require('./skill.calculator'),
-    Logger: require('./logger')
+    Logger: require('./logger'),
+    Request: require('./request.service')
 };

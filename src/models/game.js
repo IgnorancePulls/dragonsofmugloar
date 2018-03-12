@@ -1,14 +1,18 @@
 'use strict';
 
-const request = require('../request.service');
+const Request = require('../helper').Request;
 
 class Game {
+    constructor() {
+        this.request = new Request();
+    }
+
     async getGame() {
-        return request.getGame();
+        return this.request.getGame();
     }
 
     async sendGame(dragon) {
-        return request.fight(dragon, this.gameId);
+        return this.request.fight(dragon, this.gameId);
     }
 
     setGameProps(game) {

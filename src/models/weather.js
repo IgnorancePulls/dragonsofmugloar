@@ -1,11 +1,16 @@
 'use strict';
 
-const request = require('../request.service');
-const helper = require('../helper');
+const Parser = require('../helper/').ParseXml;
+const Request = require('../helper').Request;
 
 class Weather {
+    constructor() {
+        this.request = new Request();
+        this.parser = new Parser();
+    }
+
     async getWeather(gameId) {
-        return request.getWeather(gameId);
+        return this.request.getWeather(gameId);
     }
 
     setWeatherProps(weather) {
@@ -15,7 +20,7 @@ class Weather {
 
     async defineWeather(gameId) {
         let response = await this.getWeather(gameId);
-        let parsed = helper.ParseXml(response);
+        let parsed = this.parser.parseXml(response);
         this.setWeatherProps(parsed);
     }
 }
